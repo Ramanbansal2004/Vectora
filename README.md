@@ -1,9 +1,9 @@
-# VectorShift Frontend Technical Assessment
+# Vectora
 
 
 ## Assignment Overview
 
-This repository contains the solution to the **VectorShift Frontend Technical Assessment**. The project consists of a frontend built using **React** and a backend implemented with **FastAPI**. The goal of this project is to create a flexible and reusable node abstraction, enhance the styling, improve the text node logic, and integrate the frontend with the backend for pipeline submission.
+This repository contains **Vectora**. The project consists of a frontend built using **React** and a backend implemented with **FastAPI**. The goal of this project is to create a flexible and reusable node abstraction, enhance the styling, improve the text node logic, and integrate the frontend with the backend for pipeline submission.
 
 ## Project Structure
 
