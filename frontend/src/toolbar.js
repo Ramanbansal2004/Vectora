@@ -10,7 +10,7 @@ import { IoIosCheckboxOutline } from "react-icons/io";
 import { VscSymbolString } from "react-icons/vsc";
 import { IoColorPaletteOutline } from "react-icons/io5";
 import { TbMultiplier2X } from "react-icons/tb";
-
+import { BiAddToQueue } from "react-icons/bi";
 export const PipelineToolbar = () => {
   return (
     <div className="bg-white">
@@ -52,6 +52,11 @@ export const PipelineToolbar = () => {
           type="multiplierNode"
           label="Multiplier"
           icon={<TbMultiplier2X />}
+        />
+        <DraggableNode
+          type="src"
+          label="Data Source"
+          icon={<BiAddToQueue />}
         />
       </div>
     </div>

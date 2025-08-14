@@ -16,7 +16,7 @@ export const SubmitButton = () => {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        "https://vectorshift-assignment.onrender.com/pipelines/parse",
+        "http://127.0.0.1:8000/pipelines/parse",
         {
           method: "POST",
           headers: {
@@ -43,7 +43,7 @@ export const SubmitButton = () => {
           </span>
         </div>,
         {
-          position: "top-center",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,

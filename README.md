@@ -105,7 +105,7 @@ POST /pipelines/parse
 - Add more customizable node types.
 - Improve validation of user inputs in nodes.
 - Enhance error handling for pipeline submission.
-- Imrove Styling
+- Improve Styling
 
 
 

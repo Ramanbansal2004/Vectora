@@ -14,6 +14,7 @@ import { NumberInputNode } from "./nodes/numberInputNode";
 import { CheckboxNode } from "./nodes/checkBoxNode";
 import { ColorPickerNode } from "./nodes/colorPickerNode";
 import { MultiplierNode } from "./nodes/multiplierNode";
+import { Src } from "./nodes/src";
 import { StringConcatenateNode } from "./nodes/stringConcatenateNode";
 
 import "reactflow/dist/style.css";
@@ -30,6 +31,7 @@ const nodeTypes = {
   stringConcatenate: StringConcatenateNode,
   colorPicker: ColorPickerNode,
   multiplierNode: MultiplierNode,
+  src: Src,
 };
 
 const selector = (state) => ({

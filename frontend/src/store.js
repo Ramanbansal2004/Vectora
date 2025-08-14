@@ -51,6 +51,7 @@ export const useStore = create((set, get) => ({
             width: 15,
             height: 15,
             color: "#6B46C1",
+            type: MarkerType.ArrowClosed,
           },
           style: {
             strokeWidth: 2,

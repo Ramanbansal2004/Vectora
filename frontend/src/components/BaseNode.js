@@ -64,7 +64,7 @@ export const BaseNode = ({
       style={{
         ...nodeStyle,
       }}
-      className={`px-5 py-4 w-80 border-2 bg-white flex flex-col gap-2  border-blue-600 shadow-lg rounded-lg  ${className}`}
+      className={`px-5 py-4 w-80 border-2 bg-white flex flex-col gap-2  border-blue-900 shadow-lg rounded-lg  ${className}`}
     >
       <div className="flex justify-between items-center">
           <div>
