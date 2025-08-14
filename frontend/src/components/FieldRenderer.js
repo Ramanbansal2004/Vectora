@@ -19,7 +19,7 @@ const FieldRenderer = ({ field, value, onChange, label }) => {
           onChange={handleInputChange}
         >
           {field.options.map((option, index) => (
-            <SelectItem key={index} value={option}>
+            <SelectItem key={option} value={option}>
               {option}
             </SelectItem>
           ))}
@@ -31,7 +31,7 @@ const FieldRenderer = ({ field, value, onChange, label }) => {
         <Input
           type="text"
           label={label}
-          value={value}
+          value={value??""}
           onChange={handleInputChange}
           variant="bordered"
           radius="full"
@@ -41,9 +41,9 @@ const FieldRenderer = ({ field, value, onChange, label }) => {
     case "number":
       return (
         <Input
-          type="number"
+          type="text"
           label={label}
-          value={value}
+          value={value??""}
           onChange={handleInputChange}
           variant="bordered"
           radius="full"

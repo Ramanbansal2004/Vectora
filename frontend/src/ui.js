@@ -43,6 +43,7 @@ const selector = (state) => ({
   onEdgesChange: state.onEdgesChange,
   onConnect: state.onConnect,
   removeNode: state.removeNode,
+  removeEdge: state.removeEdge,
 });
 
 export const PipelineUI = () => {
@@ -57,13 +58,16 @@ export const PipelineUI = () => {
     onEdgesChange,
     onConnect,
     removeNode,
+    removeEdge,
   } = useStore(selector, shallow);
 
   const getInitNodeData = (nodeID, type) => {
     let nodeData = { id: nodeID, nodeType: `${type}` };
     return nodeData;
   };
-
+  const onEdgeClick=useCallback((event, edge)=>{
+    removeEdge(edge.id);
+  })
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
@@ -98,7 +102,7 @@ export const PipelineUI = () => {
         addNode(newNode);
       }
     },
-    [reactFlowInstance, removeNode]
+    [reactFlowInstance]
   );
 
   const onDragOver = useCallback((event) => {
@@ -114,6 +118,7 @@ export const PipelineUI = () => {
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
+          onEdgeClick={onEdgeClick}
           onConnect={onConnect}
           onDrop={onDrop}
           onDragOver={onDragOver}

@@ -30,6 +30,13 @@ export const useStore = create((set, get) => ({
         (edge) => edge.source !== nodeId && edge.target !== nodeId
       ),
     })),
+  removeEdge: (edgeId)=>
+    set((state)=>({
+      edges: state.edges.filter(
+        (edge) => edge.id!==edgeId
+      ),
+    })),
+
   onNodesChange: (changes) => {
     set({
       nodes: applyNodeChanges(changes, get().nodes),
@@ -39,6 +46,7 @@ export const useStore = create((set, get) => ({
     set({
       edges: applyEdgeChanges(changes, get().edges),
     });
+    console.log(get().edges);
   },
   onConnect: (connection) => {
     set({

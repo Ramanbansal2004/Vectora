@@ -50,7 +50,7 @@ export const BaseNode = ({
       }
     });
     setNodeData((prevData) => ({ ...prevData, ...defaultData }));
-  }, [id, customFields]);
+  }, []);
 
   const handleInputChange = (fieldName, value) => {
     setNodeData({
@@ -66,6 +66,14 @@ export const BaseNode = ({
       }}
       className={`px-5 py-4 w-80 border-2 bg-white flex flex-col gap-2  border-blue-900 shadow-lg rounded-lg  ${className}`}
     >
+      <style>{`
+        .custom-handle:hover {
+          background-color: #fff !important;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='black' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 4h2v12H9zM4 9h12v2H4z'/%3E%3C/svg%3E") !important;
+          background-repeat: no-repeat !important;
+          background-position: center !important;
+        }
+      `}</style>
       <div className="flex justify-between items-center">
           <div>
           <span className="text-blue-500 text-lg">{label}</span>
@@ -100,7 +108,7 @@ export const BaseNode = ({
           position={Position.Left}
           id={handle.id}
           style={{ ...handleStyle, ...handle.style, ...defaultHandleStyle }}
-          className="bg-white w-3 h-3 rounded-full border-1 border-purple-500"
+          className="custom-handle bg-white w-3 h-3 rounded-full border-1 border-purple-500"
         />
       ))}
       {outputHandles?.map((handle, index) => (
