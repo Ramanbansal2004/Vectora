@@ -2,8 +2,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel 
 from typing import List, Dict
+from motor.motor_asyncio import AsyncIOMotorClient
 import networkx as nx
-
+MONGO_URI = "mongodb://localhost:27017"
+client = AsyncIOMotorClient(MONGO_URI)
+db = client["vectorshift_db"]
 app = FastAPI()
 
 # Add the CORS middleware configuration
@@ -33,6 +36,7 @@ class Pipeline(BaseModel):
 @app.post("/pipelines/parse")
 async def parse_pipeline(pipeline: Pipeline):
     # Number of nodes and edges
+    
     num_nodes = len(pipeline.nodes)
     num_edges = len(pipeline.edges)
 

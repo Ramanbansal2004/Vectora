@@ -3,7 +3,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useStore } from "./store";
 import { shallow } from "zustand/shallow";
 import { Button } from "@nextui-org/react";
-
+import { useState } from "react";
+import Alert from "./Alert.js"
 export const SubmitButton = () => {
   const { nodes, edges } = useStore(
     (state) => ({
@@ -12,7 +13,24 @@ export const SubmitButton = () => {
     }),
     shallow
   );
-
+  const [ci, setCi]=useState(0);
+  const [co, setCo]=useState(0);
+  const handleCount=()=>{
+    let countInput=0, countOutput=0;
+    nodes.map((node, index)=>{
+      if(node.type==="customInput")
+      {
+        countInput++;
+      }
+      if(node.type==="customOutput")
+      {
+        countOutput++;
+      }
+    })
+    setCi(countInput);
+    setCo(countOutput);
+  }
+  const [isOpen, setisOpen]=useState(false);
   const handleSubmit = async () => {
     try {
       const response = await fetch(
@@ -75,6 +93,13 @@ export const SubmitButton = () => {
       <Button onClick={handleSubmit} color="primary" size="lg" type="submit">
         Submit
       </Button>
+      <Button className="mx-2" onClick={()=>{
+        handleCount();
+        setisOpen(!isOpen);
+      }} color="primary" size="lg" type="submit">
+        Count
+      </Button>
+      {isOpen && <Alert co={co} ci={ci}/>}
       <ToastContainer
         position="top-center"
         autoClose={5000}
